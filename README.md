@@ -1,4 +1,4 @@
-# 3D-pose-estimation-for-ergonomics-analysis
+# 3D pose estimation for ergonomics analysis
 
 _Marchello G, Abidi H, Farajtabar M, Lahoud M, Fontana E, D’Imperio M, Cannella F_
 
@@ -19,7 +19,26 @@ This method has its roots in the tf-pose-estimation by Ildoo Kim modified to wor
 | **Shoulder Extension** 	| [-13°,33°]  	| [-25°,-13°), (33°,75°]   	| [-36°,-25°), (75°,112°]  	|
 | **Shoulder Adduction**   	| [-1°,1°]  	| [-17°,-1°), (1°,43°] 	| [-25°,-17°), (43°,73°] 	|
 
+The joints composing the identified skeleton are colour-coded in green, yellow, and red for low, moderate, and high level of discomfrto, respectively. 
+
 ![](Ergo_analysis3.png)
+
+## How to run
+
+The following instructions are meant for a Linux environment running Anaconda.
+
+Download all the files present in the repository and open the Terminal in that folder.
+
+Create a new conda environment and name it as you like (*myenv* is a placeholder)
+```
+conda create -n myenv python=3.8
+```
+
+Activate the environment and install all the requirements
+```
+conda activate myenv 
+pip install -r requirements.txt
+```
 
 ## How to cite
 ```
