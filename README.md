@@ -22,4 +22,5 @@ This method has its roots in the tf-pose-estimation by Ildoo Kim modified to wor
 ### References 
 
 [1] Cao, Zhe, et al. "Realtime multi-person 2d pose estimation using part affinity fields." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017
+
 [2] Kee, Dohyung, and Waldemar Karwowski. "The boundaries for joint angles of isocomfort for sitting and standing males based on perceived comfort of static joint postures." Ergonomics 44.6 (2001): 614-648.
