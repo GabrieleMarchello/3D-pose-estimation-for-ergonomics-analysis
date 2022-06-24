@@ -27,6 +27,9 @@ The joints composing the identified skeleton are colour-coded in green, yellow, 
 
 ![](ergo_analysis.png)
 
+The implemented method displays in output the RGB image overlapped by the colour-coded skeleton. In addition, it prints on screen the center of mass of the identified skeleton, and the center of mass of the different joints.
+
+
 ## How to run
 
 The following instructions are meant for a Linux environment running Anaconda.
