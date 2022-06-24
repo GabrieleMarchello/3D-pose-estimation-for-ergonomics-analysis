@@ -21,7 +21,7 @@ This method has its roots in the tf-pose-estimation by Ildoo Kim modified to wor
 | **Shoulder Extension** 	| [-13°,33°]  	| [-25°,-13°), (33°,75°]   	| [-36°,-25°), (75°,112°]  	|
 | **Shoulder Adduction**   	| [-1°,1°]  	| [-17°,-1°), (1°,43°] 	| [-25°,-17°), (43°,73°] 	|
 
-The joints composing the identified skeleton are colour-coded in green, yellow, and red for low, moderate, and high level of discomfrto, respectively. 
+The joints composing the identified skeleton are colour-coded in green, yellow, and red for low, moderate, and high level of discomfort, respectively. 
 
 ![](ergo_analysis.png)
 
