@@ -89,23 +89,6 @@ align = rs.align(align_to)
 model = 'mobilenet_v2_large'
         
 e = TfPoseEstimator(get_graph_path(model), target_size=(w, h), trt_bool=str2bool("False"))
-            
-fig = plt.figure(1)
-ax = fig.add_subplot(projection='3d')
-ax.view_init(elev=10)
-# ax.set_xlim([-1,1])
-ax.set_xlim([-0.5,0.5])
-ax.set_xticks(np.arange(-1, 1.4, step=0.4))
-ax.set_xticklabels(['-1','-0.6','-0.2','0.2','0.4','1'])
-# ax.set_ylim([-2,0])
-ax.set_ylim([-1.5,0])
-ax.set_yticks(np.arange(-2, 0.4, step=0.4))
-ax.set_yticklabels(['-2','-1.6','-1.2','0.8','0.4','0'])
-ax.set_zlim([-1,1])
-ax.set_zticks(np.arange(-1, 1.4, step=0.4))
-ax.set_zticklabels(['-1','-0.6','-0.2','0.2','0.4','1'])
-# plt.ion()
-fig.show()
 
 fps_time = 0
 
@@ -135,15 +118,11 @@ try:
     depth_image = np.asanyarray(aligned_depth_frame.get_data())
     color_image = np.asanyarray(color_frame.get_data())
     
-    cv2.imshow('RGB Image', color_image)
+    # cv2.imshow('RGB Image', color_image)
     
     humans = e.inference(color_image, resize_to_default=(w > 0 and h > 0), upsample_size=4.0)
-    # bparts=TfPoseEstimator.draw_humans_3d(fig, ax, depth_image, depth_scale, rs, camera_info, humans, [], imgcopy=False)# body_dict, imgcopy=False)
     
-    bparts_col = TfPoseEstimator.draw_humans_3d(fig, ax,depth_image, depth_scale, rs, camera_info, humans, [], imgcopy=False)# body_dict, imgcopy=False)
-    
-    fig.canvas.draw()
-    fig.canvas.flush_events()
+    bparts_col = TfPoseEstimator.draw_humans_3d(depth_image, depth_scale, rs, camera_info, humans, [], imgcopy=False)# body_dict, imgcopy=False)
     
     # img_out = TfPoseEstimator.draw_humans(color_image, humans, imgcopy=False)
     img_out = TfPoseEstimator.draw_humans(color_image, humans, bparts_col, imgcopy=False)
