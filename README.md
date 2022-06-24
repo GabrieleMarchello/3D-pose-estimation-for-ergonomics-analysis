@@ -42,6 +42,14 @@ conda activate myenv
 pip install -r requirements.txt
 ```
 
+Install swig
+
+```
+$ cd core/tf_pose/pafprocess/
+$ swig -python -c++ pafprocess.i 
+$ python setup.py build
+```
+
 ## How to cite
 
 ```
