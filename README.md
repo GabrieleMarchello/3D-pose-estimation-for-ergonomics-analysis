@@ -50,11 +50,16 @@ swig -python -c++ pafprocess.i
 python setup.py build
 ```
 
-Go to the main folder and run 
+Go to the main folder and run to evaluate ergonomics in real-time
 
 ```
-python posenet_3d_stream.py    ### to evaluate ergonomics in real-time
-python posenet_3d_snap.py      ### to evaluate ergonomics in one signle snap
+python posenet_3d_stream.py    
+```
+
+or to evaluate ergonomics in one signle snap
+
+```
+python posenet_3d_snap.py       
 ```
 
 ## How to cite
