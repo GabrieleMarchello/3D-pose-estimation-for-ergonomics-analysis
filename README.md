@@ -53,8 +53,8 @@ python setup.py build
 Go to the main folder and run 
 
 ```
-python 3D_posenet_stream    ### to evaluate ergonomics in real-time
-python 3D_posenet_snap      ### to evaluate ergonomics in one signle snap
+python posenet_3d_stream.py    ### to evaluate ergonomics in real-time
+python posenet_3d_snap.py      ### to evaluate ergonomics in one signle snap
 ```
 
 ## How to cite
