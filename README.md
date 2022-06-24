@@ -45,9 +45,16 @@ pip install -r requirements.txt
 Install swig
 
 ```
-$ cd core/tf_pose/pafprocess/
-$ swig -python -c++ pafprocess.i 
-$ python setup.py build
+cd core/tf_pose/pafprocess/
+swig -python -c++ pafprocess.i 
+python setup.py build
+```
+
+Go to the main folder and run 
+
+```
+python 3D_posenet_stream    ### to evaluate ergonomics in real-time
+python 3D_posenet_snap      ### to evaluate ergonomics in one signle snap
 ```
 
 ## How to cite
