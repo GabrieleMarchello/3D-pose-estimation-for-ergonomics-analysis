@@ -424,7 +424,7 @@ class TfPoseEstimator:
                 body_part = human.body_parts[i]
                 center = (int(body_part.x * image_w + 0.5), int(body_part.y * image_h + 0.5))
                 centers[i] = center
-                # cv2.circle(npimg, center, 3, common_3d.CocoColors[i], thickness=3, lineType=8, shift=0)
+                
                 cv2.circle(npimg, center, 3, [0,0,0], thickness=3, lineType=8, shift=0)
 
             # draw line
@@ -432,14 +432,12 @@ class TfPoseEstimator:
                 if pair[0] not in human.body_parts.keys() or pair[1] not in human.body_parts.keys():
                     continue
 
-                # npimg = cv2.line(npimg, centers[pair[0]], centers[pair[1]], common_3d.CocoColors[pair_order], 3)
-                # cv2.line(npimg, centers[pair[0]], centers[pair[1]], common_3d.CocoColors[pair_order], 3)
                 cv2.line(npimg, centers[pair[0]], centers[pair[1]], np.flip(bparts_col[pair_order,:]*255,0), 3)
 
         return npimg
 
     @staticmethod
-    def draw_humans_3d(fig, ax, depth_img, depth_scale, rs, camera_info, humans, body_dict, imgcopy=False):
+    def draw_humans_3d(depth_img, depth_scale, rs, camera_info, humans, body_dict, imgcopy=False):
         if imgcopy:
             depth_img = np.copy(depth_img)
         image_h, image_w = depth_img.shape[:2]
@@ -447,24 +445,6 @@ class TfPoseEstimator:
        	
         body_col_out = np.zeros((17,4))
         body_col_out[:,0] = np.arange(17)
-        
-        ax = fig.add_subplot(projection='3d')
-        ax.view_init(elev=10)
-        # ax.set_xlim([-1,1])
-        ax.set_xlim([-0.5,0.5])
-        ax.set_xticks(np.arange(-1, 1.4, step=0.4))
-        ax.set_xticklabels(['-1','-0.6','-0.2','0.2','0.4','1'])
-        # ax.set_ylim([-2,0])
-        ax.set_ylim([-1.5,0])
-        ax.set_yticks(np.arange(-2, 0.4, step=0.4))
-        ax.set_yticklabels(['-2','-1.6','-1.2','0.8','0.4','0'])
-        ax.set_zlim([-1,1])
-        ax.set_zticks(np.arange(-1, 1.4, step=0.4))
-        ax.set_zticklabels(['-1','-0.6','-0.2','0.2','0.4','1'])
-        # ax.invert_yaxis()
-        # plt.ion()
-        
-        # fps_time = time.time()
 
         for h, human in enumerate(humans):
             
@@ -481,10 +461,7 @@ class TfPoseEstimator:
                 
                 center= (result[0], -result[1], -2+result[2])
                 centers[i] = center
-                
-                ax.scatter(centers[i][0], 1+centers[i][2], centers[i][1],  color = [0,0,0], s=50)##########################################
-                # ax.scatter(centers[i][0], 1+centers[i][2], centers[i][1],  color = [0,0,0], s=50)
-            
+                            
             sk_coord_mat = np.zeros((17,8))
             sk_coord_mat[:,0] = np.arange(17)
             sk_coord_mat[:,-1] = -1
@@ -493,8 +470,6 @@ class TfPoseEstimator:
             
                 if pair[0] not in human.body_parts.keys() or pair[1] not in human.body_parts.keys():
                     continue
-                                        
-                #ax.plot([centers[pair[0]][0], centers[pair[1]][0]], [1+centers[pair[0]][2], 1+centers[pair[1]][2]], [centers[pair[0]][1], centers[pair[1]][1]], color = common_3d.CocoColors_3d[pair_order], linewidth = 5) ############################
                     
                	sk_coord_mat[pair_order,1:4] = centers[pair[0]]
                	sk_coord_mat[pair_order,4:7] = centers[pair[1]]
@@ -513,8 +488,6 @@ class TfPoseEstimator:
             		body_part_col = np.asarray([128,138,135])/255	# gray
 
             	body_col_out[s,1:] = body_part_col 
-                    
-            	ax.plot([sk[1], sk[4]], [1+sk[3], 1+sk[6]], [sk[2], sk[5]], color = body_part_col, linewidth = 5)
 
             if body_col_out is None:
                 return []

@@ -170,7 +170,7 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = lower_back_ang(pos,lat_bend_r_ang,sk_coord_mat)
 		
-		print('Lower back R - Lateral bending: '+str(lat_bend_r_ang))
+		# print('Lower back R - Lateral bending: '+str(lat_bend_r_ang))
 		
 	if 1 in sk_coord_mat_noz[:,0]:
 		pos = 1
@@ -182,7 +182,7 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = lower_back_ang(pos,lat_bend_l_ang,sk_coord_mat)
 		
-		print('Lower back L - Lateral bending: '+str(lat_bend_l_ang))
+		# print('Lower back L - Lateral bending: '+str(lat_bend_l_ang))
 		
 	if 2 in sk_coord_mat_noz[:,0]:
 		pos = 2
@@ -202,8 +202,18 @@ def ergo_angle(sk_coord_mat):
         
 		sk_coord_mat = shoulder_ang(pos,shoulder_r_ang,sk_coord_mat)
 		
-		print('Shoulder R - Extension: '+str(ext_ang))
-		print('Shoulder R - Adduction: '+str(abd_ang))
+		print('Identified right arm at: '+str((pair_i+pair_f)/2))
+		# print('Shoulder R - Extension: '+str(ext_ang))
+		# print('Shoulder R - Adduction: '+str(abd_ang))
+		
+	if 3 in sk_coord_mat_noz[:,0]:
+		pos = 3
+	
+		pair_i = sk_coord_mat_noz[sk_coord_mat_noz[:,0]==pos,1:4][0]
+		pair_f = sk_coord_mat_noz[sk_coord_mat_noz[:,0]==pos,4:7][0]
+		
+		
+		print('Identified right fore arm at: '+str((pair_i+pair_f)/2))
 	
 	if 4 in sk_coord_mat_noz[:,0]:
 		pos = 4
@@ -221,8 +231,18 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = shoulder_ang(pos,shoulder_l_ang,sk_coord_mat)
 		
-		print('Shoulder L - Extension: '+str(ext_ang))
-		print('Shoulder L - Adduction: '+str(abd_ang))
+		print('Identified left arm at: '+str((pair_i+pair_f)/2))
+		# print('Shoulder L - Extension: '+str(ext_ang))
+		# print('Shoulder L - Adduction: '+str(abd_ang))
+		
+	if 5 in sk_coord_mat_noz[:,0]:
+		pos = 5
+	
+		pair_i = sk_coord_mat_noz[sk_coord_mat_noz[:,0]==pos,1:4][0]
+		pair_f = sk_coord_mat_noz[sk_coord_mat_noz[:,0]==pos,4:7][0]
+		
+		
+		print('Identified left fore arm at: '+str((pair_i+pair_f)/2))
 	
 	if 6 in sk_coord_mat_noz[:,0]:
 		pos = 6
@@ -234,7 +254,7 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = lower_back_rot_ang(pos,lower_back_r_ang,sk_coord_mat)
 		
-		print('Lower back R - Rotation: '+str(lower_back_r_ang))
+		# print('Lower back R - Rotation: '+str(lower_back_r_ang))
 	
 	if 9 in sk_coord_mat_noz[:,0]:
 		pos = 9
@@ -246,7 +266,7 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = lower_back_rot_ang(pos,lower_back_l_ang,sk_coord_mat)
 		
-		print('Lower back L - Rotation: '+str(lower_back_l_ang))
+		# print('Lower back L - Rotation: '+str(lower_back_l_ang))
 	
 	if 12 in sk_coord_mat_noz[:,0]:
 		pos = 12
@@ -261,8 +281,8 @@ def ergo_angle(sk_coord_mat):
 		
 		sk_coord_mat = neck_ang(pos,neck_v_ang,sk_coord_mat)
 		
-		print('Neck - Lateral bending: '+str(lat_bend_ang))
-		print('Neck - Extension: '+str(ext_ang))
+		# print('Neck - Lateral bending: '+str(lat_bend_ang))
+		# print('Neck - Extension: '+str(ext_ang))
 	
 	if 13 in sk_coord_mat_noz[:,0]:
 		pos = 13
@@ -274,7 +294,7 @@ def ergo_angle(sk_coord_mat):
         		
 		sk_coord_mat = neck_rot_ang(12,rot_ang,sk_coord_mat)
         
-		print('Neck - Rot ang 13: '+str(rot_ang))
+		# print('Neck - Rot ang 13: '+str(rot_ang))
 	
 	if 15 in sk_coord_mat_noz[:,0]:
 		pos = 15
@@ -286,7 +306,7 @@ def ergo_angle(sk_coord_mat):
         		
 		sk_coord_mat = neck_rot_ang(12,rot_ang,sk_coord_mat)
         
-		print('Neck - Rot ang 15: '+str(rot_ang))
+		# print('Neck - Rot ang 15: '+str(rot_ang))
     
 	#print('Neck - Extension:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa '+str(sk_coord_mat[12,-1]))    
 	return sk_coord_mat
