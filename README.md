@@ -44,13 +44,20 @@ Activate the environment and install all the requirements
 
 ```
 conda activate myenv 
+
 pip install -r requirements.txt
+pip install tensorflow-gpu
+pip install pyrealsense2
+pip install pyyaml
 ```
 
 Install swig
 
 ```
-cd core/tf_pose/pafprocess/
+sudo apt update 
+sudo apt install swig
+
+cd /tf_pose/pafprocess/
 swig -python -c++ pafprocess.i 
 python setup.py build
 ```
