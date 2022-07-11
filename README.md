@@ -57,7 +57,7 @@ Install swig
 sudo apt update 
 sudo apt install swig
 
-cd /tf_pose/pafprocess/
+cd tf_pose/pafprocess/
 swig -python -c++ pafprocess.i 
 python setup.py build
 ```
