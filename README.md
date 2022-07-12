@@ -37,7 +37,7 @@ Download all the files present in the repository and open the Terminal in that f
 Create a new conda environment and name it as you like (*myenv* is a placeholder)
 
 ```
-conda create -n myenv python=3.8
+conda create -n myenv python=3.7.6
 ```
 
 Activate the environment and install all the requirements
@@ -48,7 +48,8 @@ conda activate myenv
 pip install -r requirements.txt
 pip install tensorflow-gpu
 pip install pyrealsense2
-pip install pyyaml
+pip install opencv-python
+pip install tf_slim
 ```
 
 Install swig
