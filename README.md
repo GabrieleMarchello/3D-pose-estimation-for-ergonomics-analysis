@@ -55,9 +55,6 @@ pip install tf_slim
 Install swig
 
 ```
-sudo apt update 
-sudo apt install swig
-
 cd tf_pose/pafprocess/
 swig -python -c++ pafprocess.i 
 python setup.py build
